@@ -21,21 +21,3 @@ This cheatsheet summarizes the main commands and concepts I learned while playin
 | `sort data.txt | uniq -u` | Find the unique line in a file | Sort first, then `uniq -u` keeps only non-duplicate lines |
 | `strings data.txt | grep "==="` | Extract readable strings from binary data and filter by pattern | Useful for hidden text inside binary files |
 
-## How to Add More Commands
-
-- Add new commands as new table rows.
-- Keep command, purpose, and notes separate for readability.
-- Use examples when the command needs special syntax.
-
-## Helpful Notes
-
-- Always inspect the directory before running commands.
-- Use `file` to check file type before using `cat` on unknown files.
-- Use `--` or `./` when filenames look like options or contain spaces.
-- Combine commands with pipes `|` to create small, useful workflows.
-
----
-
-## Summary
-
-This file is a reference for the Bandit commands I used most often. The table format makes it easy to expand as I finish more levels.
