@@ -1,115 +1,41 @@
 # Bandit Cheatsheet
 
-This cheatsheet summarizes the main commands and concepts I learned while playing OverTheWire Bandit levels 0–10.
+This cheatsheet summarizes the main commands and concepts I learned while playing OverTheWire Bandit levels 0–10. The table format makes it easy to add more commands as I progress.
 
-## SSH Access
+## Command Reference
 
-```bash
-ssh -p 2220 bandit0@bandit.labs.overthewire.org
-```
+| Command | Purpose | Notes / Example |
+|---|---|---|
+| `ssh -p 2220 bandit0@bandit.labs.overthewire.org` | Connect to the Bandit server | Use port `2220` instead of default SSH port |
+| `ls` | List files and directories | Start with `ls` to inspect the current directory |
+| `cd <directory>` | Change directory | Example: `cd inhere` |
+| `cat <file>` | Display contents of a text file | Example: `cat readme` |
+| `cat ./-` | Read a file named `-` | `./` prevents the shell from treating `-` as an option |
+| `cat -- -` | Read a file named `-` | `--` stops option parsing |
+| `cat -- "--spaces in this filename--"` | Read a file with spaces and special characters in its name | Quote the filename to preserve spaces |
+| `ls -a` | Show all files, including hidden ones | Hidden files start with `.` |
+| `file ./*` | Inspect file types in the directory | Use before reading unknown files |
+| `find . -type f -size 1033c ! -executable` | Find files that are regular, exactly 1033 bytes, and not executable | Good for filtering by size and permissions |
+| `find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null` | Find a file by owner, group, size from root | `2>/dev/null` hides permission denied errors |
+| `grep "millionth" data.txt` | Search for a pattern in a text file | `grep` is the basic tool for text searching |
+| `sort data.txt | uniq -u` | Find the unique line in a file | Sort first, then `uniq -u` keeps only non-duplicate lines |
+| `strings data.txt | grep "==="` | Extract readable strings from binary data and filter by pattern | Useful for hidden text inside binary files |
 
-- `ssh`: connect securely to the remote Bandit server
-- `-p 2220`: use port 2220 instead of the default SSH port
+## How to Add More Commands
 
-## Basic File Navigation
+- Add new commands as new table rows.
+- Keep command, purpose, and notes separate for readability.
+- Use examples when the command needs special syntax.
 
-```bash
-ls
-cd <directory>
-cat <file>
-```
+## Helpful Notes
 
-- `ls`: list files and directories in the current directory
-- `cd inhere`: change into the `inhere` directory
-- `cat readme`: display file contents on the terminal
-
-## Working with Special Filenames
-
-```bash
-cat ./-
-cat -- -
-```
-
-- Filenames starting with `-` may be parsed as options
-- Use `./filename` or `-- filename` to force the shell to treat the text as a file path
-
-## Handling Spaces and Special Characters in Filenames
-
-```bash
-cat -- "--spaces in this filename--"
-```
-
-- `--` stops option parsing for many GNU commands
-- Quote filenames that contain spaces so the shell treats them as one argument
-
-## Finding Hidden Files
-
-```bash
-ls -a
-```
-
-- `ls -a` shows hidden files and directories that start with `.`
-- Hidden files are not truly secret, they are just omitted by default
-
-## Identifying File Types
-
-```bash
-file ./*
-```
-
-- `file` inspects each file and reports its type
-- Useful for finding which files are human-readable and which are binary
-
-## Searching by File Attributes
-
-```bash
-find . -type f -size 1033c ! -executable
-find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
-```
-
-- `find .`: search from the current directory recursively
-- `-type f`: match regular files only
-- `-size 1033c`: match files exactly 1033 bytes in size
-- `! -executable`: exclude executable files
-- `2>/dev/null`: remove permission denied errors from output
-
-## Pattern Search in Text Files
-
-```bash
-grep "millionth" data.txt
-```
-
-- `grep`: search for text patterns inside files
-- Works well for finding a specific keyword or phrase
-
-## Text Processing and Unique Lines
-
-```bash
-sort data.txt | uniq -u
-```
-
-- `sort`: order lines so duplicates become adjacent
-- `uniq -u`: print only lines that appear exactly once
-- Useful for finding the unique or odd line out
-
-## Extracting Readable Strings from Binary Files
-
-```bash
-strings data.txt | grep "==="
-```
-
-- `strings`: extract printable characters from binary files
-- Helps locate hidden text or passwords embedded in binaries
-
-## Useful Notes
-
-- Always inspect the directory first with `ls` before running commands.
-- Use `cat` for plain text files, but verify the file type first if the filename looks unusual.
-- If a command has a filename argument that could be confused with an option, use `--`.
-- For CTF-style challenges, combine simple commands into a pipeline to isolate the answer efficiently.
+- Always inspect the directory before running commands.
+- Use `file` to check file type before using `cat` on unknown files.
+- Use `--` or `./` when filenames look like options or contain spaces.
+- Combine commands with pipes `|` to create small, useful workflows.
 
 ---
 
 ## Summary
 
-This file is meant to be a quick reference for the Bandit commands I used most often. It covers SSH access, file discovery, special filename handling, permission-safe searching, and text extraction.
+This file is a reference for the Bandit commands I used most often. The table format makes it easy to expand as I finish more levels.
