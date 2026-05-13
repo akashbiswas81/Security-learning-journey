@@ -1,37 +1,31 @@
 # Bandit Level 0 → Level 1
 
 ## Goal
-
-Read the password stored in the `readme` file.
-
----
-
-## Commands Used
-
-```bash
-ls
-cat readme
-```
+Find the password in the `readme` file.
 
 ---
 
-## Explanation
-
-### `ls`
-
-Lists files in the current directory.
-
-### `cat`
-
-Displays the contents of a file.
+## What I did
+1. Used `ls` to list files.
+2. Used `cat readme` to read the file.
 
 ---
 
-## Key Learning
+## Why it worked
+The password was stored in a plain text file named `readme` in the current directory.
+`ls` confirmed the file exists, and `cat` displayed its contents.
 
-- Basic Linux navigation
-- Reading files from terminal
-- Understanding current working directory
+---
+
+## Notes
+- `ls` is useful for checking what’s available before running commands.
+- `cat` shows file contents directly in the terminal.
+- This is a basic file-read task, good for confirming the environment and file names.
+
+---
+
+## Takeaway
+Start simple: inspect the directory first, then read the target file. It’s a solid first step for learning Linux command-line basics.
 
 ---
 
