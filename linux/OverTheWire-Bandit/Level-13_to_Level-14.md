@@ -25,9 +25,7 @@ The key was named `sshkey.private`. That’s the credential I needed to become `
 I also checked the hint files, just in case the challenge had an extra note.
 
 ```bash
-cat README
-# or
-cat hint
+cat Hint
 ```
 
 Then I fixed the key file permissions before trying to SSH. SSH won’t accept the key if it’s too open.
