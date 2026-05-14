@@ -1,4 +1,4 @@
-# Bandit Level 10 → Level 11 -
+# Bandit Level 10 → Level 11 
 
  The goal is to get the password for the next level, which is stored in `data.txt` as Base64 encoded data.
 
@@ -26,7 +26,7 @@ Wait, that's not right. Let me copy the actual encoded data from the file.
 
 Actually, in the challenge, the encoded data was something like that. Anyway, decoding it gave me the password.
 
-## Step-by-Step (My Thought Process)
+## Step-by-Step
 
 1. **Reading the file**: I just cat'ed it to see what's inside. It was a bunch of text, some encoded.
 

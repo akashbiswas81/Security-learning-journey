@@ -1,4 +1,4 @@
-# Bandit Level 11 → Level 12 - My Notes
+# Bandit Level 11 → Level 12
 
  The password for the next level is in `data.txt`, but all letters are rotated by 13 positions – that's ROT13 encoding. I remember ROT13 is a simple cipher where A becomes N, B becomes O, etc.
 
@@ -20,7 +20,7 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 
 That gave me the decoded text, and from there, I extracted the password.
 
-## Step-by-Step (My Thought Process)
+## Step-by-Step
 
 1. **Reading the file**: Just cat'ed it. Saw the encoded text. Knew it was ROT13 because the hint said so.
 

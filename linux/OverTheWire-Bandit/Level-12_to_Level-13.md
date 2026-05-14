@@ -1,4 +1,4 @@
-# Bandit Level 12 → Level 13 - My Notes
+# Bandit Level 12 → Level 13 
 
 Level 12 to 13 was tricky but fun. The password is in `data.txt`, which is a hexdump of a file that's been compressed multiple times. I had to reverse the hexdump, then keep decompressing until I got to the plain text.
 
@@ -59,7 +59,7 @@ cat data
 
 And there was the password.
 
-## Step-by-Step (My Thought Process)
+## Step-by-Step
 
 1. **Temp directory**: Used mktemp to create a safe workspace. Didn't want to clutter up the bandit12 home.
 
